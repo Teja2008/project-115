@@ -32,7 +32,7 @@ function modelLoaded(){
 function draw(){
 image(video,0,0,300,300)
 
-image(libstick, nosex,nosey,80,30)
+image(libstick, nosex-40,nosey,50,20)
 }
 function takesnapshot(){
     save('selfie.png');
