@@ -1,5 +1,7 @@
+var nosex= 0;
+var nosey= 0;
 function preload(){
-
+    libstick= loadImage('https://i.postimg.cc/PxFvYgkv/l1.png');
 }
 
 function setup(){
@@ -17,8 +19,10 @@ poseNet.on('pose',gotPoses);
 function gotPoses(results){
     if(results.length>0){
         console.log(results);
-        console.log("nose x ="+ results[0].pose.nose.x);
-        console.log("nose y ="+ results[0].pose.nose.y);
+        nosex= results[0].pose.nose.x
+        nosey= results[0].pose.nose.y
+        console.log("nose x ="+ nosex);
+        console.log("nose y ="+ nosey);
     }
 
 }
@@ -27,6 +31,8 @@ function modelLoaded(){
 }
 function draw(){
 image(video,0,0,300,300)
+
+image(libstick, nosex,nosey,80,30)
 }
 function takesnapshot(){
     save('selfie.png');
